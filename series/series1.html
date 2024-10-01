@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Series Title</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <script src="/assets/js/main.js" defer></script>
+</head>
+<body class="dark-theme">
+    <h1>Series Title</h1>
+    <div id="seriesDescription"></div>
+    <div id="chapterList"></div>
+    <div class="disqus-comments" id="disqus_thread"></div>
+    <script>
+        // Disqus Integration
+        var disqus_config = function () {
+            this.page.url = window.location.href;  // Replace with your page's canonical URL variable
+            this.page.identifier = "series1"; // Replace with your page's unique identifier variable
+        };
+
+        (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://YOUR_DISQUS_SHORTNAME.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+</body>
+</html>
