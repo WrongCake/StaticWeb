@@ -1,0 +1,52 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 2px solid yellow;
+}
+
+h1 {
+    color: yellow;
+}
+
+input[type="text"], input[type="password"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+}
+
+button {
+    padding: 10px;
+    background-color: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: darkgreen;
+}
+
+.series-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.series-item {
+    border: 1px solid yellow;
+    margin: 10px;
+    padding: 10px;
+    flex: 1 0 200px; /* Flexbox for responsive design */
+}
+
+.announcement {
+    background-color: darkgray;
+    padding: 10px;
+    margin: 10px 0;
+}
