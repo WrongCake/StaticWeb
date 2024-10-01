@@ -3,16 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FleX Scans</title>
-    <link rel="stylesheet" href="/assets/css/styles.css">
-    <script src="/assets/js/main.js" defer></script>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Flex Scans - Home</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="dark-theme">
+<body>
+
+    <!-- Header section with Flex Scans logo -->
     <header>
-        <h1>FleX Scans</h1>
-        <input type="text" id="searchBar" placeholder="Search...">
+        <div class="navbar">
+            <a href="index.html" class="flex-title">Flex Scans</a>
+            <div class="search-bar">
+                <input type="text" placeholder="Search series..." id="searchBar">
+            </div>
+        </div>
+        <div class="border-line"></div>
     </header>
-    <div class="announcement" id="announcementArea"></div>
-    <div class="series-container" id="seriesList"></div>
+
+    <!-- Main content area for series and chapters -->
+    <main>
+        <section class="series-grid">
+            <div class="series-card">
+                <img src="assets/images/series1.jpg" alt="Series 1">
+                <div class="series-info">
+                    <h3>Series Title 1</h3>
+                    <a href="series-page.html">Chapter 10: New Horizons</a>
+                </div>
+            </div>
+
+            <div class="series-card">
+                <img src="assets/images/series2.jpg" alt="Series 2">
+                <div class="series-info">
+                    <h3>Series Title 2</h3>
+                    <a href="series-page.html">Chapter 12: The Dark Return</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Announcement area -->
+        <section class="announcement">
+            <h2>Announcements</h2>
+            <p>New chapter releases every Friday!</p>
+        </section>
+    </main>
+
+    <!-- Footer for disqus comments -->
+    <footer>
+        <div id="disqus_thread"></div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
+
