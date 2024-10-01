@@ -7,8 +7,8 @@
 
 /* Body and background */
 body {
-    background: #2b2d42; /* Dark anime-like background */
-    color: #edf2f4; /* Soft white for text */
+    background: #1a1a2e; /* Dark anime-like background */
+    color: #fff; /* White text */
     font-family: 'Poppins', sans-serif;
 }
 
@@ -64,7 +64,7 @@ main {
 }
 
 .series-card {
-    background-color: #3a3f58;
+    background-color: #2f3640;
     padding: 10px;
     border-radius: 10px;
     text-align: center;
