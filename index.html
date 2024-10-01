@@ -4,40 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Flex Scans - Home</title>
+    <title>Flex Scans - Homepage</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-    <!-- Header section with Flex Scans logo -->
     <header>
-        <div class="navbar">
-            <a href="index.html" class="flex-title">Flex Scans</a>
-            <div class="search-bar">
-                <input type="text" placeholder="Search series..." id="searchBar">
-            </div>
+        <a href="index.html" class="flex-title">Flex Scans</a>
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
         </div>
-        <div class="border-line"></div>
     </header>
 
-    <!-- Main content area for series and chapters -->
-    <main>
-        <section class="series-grid" id="seriesGrid">
-            <!-- Series cards will be dynamically loaded here using JavaScript -->
-        </section>
+    <div class="border-line"></div>
+    
+    <div class="announcement-link" style="text-align: center; margin-top: 10px;">
+        <a href="announcements.html" style="color: #39ff14;">Announcements</a>
+    </div>
 
-        <!-- Announcement area -->
-        <section class="announcement">
-            <h2>Announcements</h2>
-            <p>New chapter releases every Friday!</p>
-        </section>
+    <main>
+        <div id="seriesContainer"></div> <!-- Series are dynamically loaded here -->
     </main>
 
-    <!-- Footer for disqus comments -->
-    <footer>
-        <div id="disqus_thread"></div>
-    </footer>
-
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/admin.js"></script>
 </body>
 </html>
