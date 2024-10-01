@@ -1,23 +1,10 @@
-// Simulated data from an admin upload
-const seriesData = [
-    {
-        title: "Series Title 1",
-        chapter: "Chapter 10: New Horizons",
-        image: "assets/images/series1.jpg",
-        seriesPageLink: "series-page.html"
-    },
-    {
-        title: "Series Title 2",
-        chapter: "Chapter 12: The Dark Return",
-        image: "assets/images/series2.jpg",
-        seriesPageLink: "series-page.html"
-    }
-];
+// Series data will be updated by admin uploads
+let seriesData = []; // This will be shared between the admin and homepage
 
 // Function to display the series on homepage
 function displaySeries() {
-    const seriesGrid = document.getElementById('seriesGrid');
-    seriesGrid.innerHTML = '';  // Clear any existing content
+    const seriesGrid = document.getElementById('seriesGrid'); // Make sure this element exists on the homepage
+    seriesGrid.innerHTML = '';  // Clear any existing series
 
     seriesData.forEach(series => {
         const seriesCard = document.createElement('div');
@@ -35,16 +22,5 @@ function displaySeries() {
     });
 }
 
-// Call the function to display the series after admin upload
+// Simulate initial series load (You could fetch this data from a backend)
 displaySeries();
-
-// Simple search logic
-document.getElementById('searchBar').addEventListener('input', function() {
-    const query = this.value.toLowerCase();
-    const seriesCards = document.querySelectorAll('.series-card');
-
-    seriesCards.forEach(card => {
-        const seriesTitle = card.querySelector('h3').textContent.toLowerCase();
-        card.style.display = seriesTitle.includes(query) ? '' : 'none';
-    });
-});
