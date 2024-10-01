@@ -1,90 +1,155 @@
-/* Global Styles */
+/* General Styles */
 body {
-    background-color: #1a1a1a; /* Dark background */
-    color: #f5f5f5; /* Light text */
-    font-family: 'Arial', sans-serif;
+    background-color: #0d0d0d; /* Dark background */
+    color: #ffffff; /* White text */
+    font-family: 'Arial', sans-serif; /* Font style */
     margin: 0;
     padding: 0;
 }
 
-/* Header styles */
+/* Header Styles */
 header {
-    background-color: #1a1a1a;
-    color: #39ff14; /* Neon green for anime aesthetic */
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    border-bottom: 4px solid #39ff14; /* Neon border */
+    justify-content: space-between; /* Space between title and search bar */
+    align-items: center; /* Center items vertically */
+    padding: 10px 20px; /* Padding around the header */
+    background-color: #151515; /* Dark header background */
+    border-bottom: 2px solid #00ffcc; /* Border color */
 }
 
 .flex-title {
-    font-size: 2rem;
-    color: #39ff14;
-    text-decoration: none;
+    color: #00ffcc; /* Title color */
+    font-size: 2rem; /* Title size */
+    text-decoration: none; /* No underline */
+    font-weight: bold; /* Bold text */
 }
 
-.border-line {
-    border-bottom: 2px solid #39ff14; /* Neon border separating header and content */
-    width: 100%;
+.flex-title:hover {
+    color: #00ffa3; /* Hover effect color */
 }
 
-/* Search bar styles */
+/* Search Bar Styles */
 .search-bar {
-    position: absolute;
-    top: 25px;
-    right: 20px;
+    width: 200px; /* Width of search bar */
+    padding: 5px; /* Padding inside search bar */
+    background-color: #333; /* Search bar background */
+    border: none; /* No border */
+    color: #ffffff; /* Text color */
+    border-radius: 5px; /* Rounded corners */
 }
 
-.search-bar input {
-    padding: 8px;
-    border-radius: 5px;
-    border: none;
-    background-color: #333;
-    color: #fff;
+/* Border Line */
+.border-line {
+    width: 100%; /* Full width */
+    height: 2px; /* Height of the border */
+    background-color: #00ffcc; /* Border color */
+    margin: 20px 0; /* Margin for spacing */
 }
 
 /* Main Content Styles */
 main {
-    padding: 20px;
-    background-color: #1a1a1a;
+    max-width: 800px; /* Max width for main content */
+    margin: 20px auto; /* Center main content */
+    padding: 20px; /* Padding inside main content */
+    background-color: #1c1c1c; /* Main content background */
+    border-radius: 10px; /* Rounded corners */
 }
 
-/* Series Container */
-#seriesContainer {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
+/* Headings */
+h2 {
+    color: #00ffcc; /* Heading color */
 }
 
-.series-card {
-    background-color: #333;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
+/* Form Styles */
+form {
+    display: flex; /* Flexbox for form layout */
+    flex-direction: column; /* Stack elements vertically */
 }
 
-.series-card img {
-    max-width: 100%;
-    border-radius: 10px;
+/* Label Styles */
+label {
+    margin-top: 10px; /* Margin above label */
+    margin-bottom: 5px; /* Margin below label */
+    color: #cccccc; /* Label color */
 }
 
-.series-card h3 {
-    color: #39ff14;
-    margin: 10px 0;
+/* Input Styles */
+input[type="text"],
+input[type="url"],
+input[type="password"] {
+    padding: 10px; /* Padding inside inputs */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #333; /* Input background */
+    color: #ffffff; /* Text color */
 }
 
-.series-card p {
-    color: #fff;
+/* Button Styles */
+button {
+    margin-top: 20px; /* Margin above button */
+    padding: 10px; /* Padding inside button */
+    background-color: #00ffcc; /* Button background */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    color: #000; /* Text color */
+    font-weight: bold; /* Bold text */
+    cursor: pointer; /* Pointer cursor on hover */
 }
 
-/* Announcement link */
+button:hover {
+    background-color: #00ffa3; /* Hover effect color */
+}
+
+/* Announcement Link Styles */
+.announcement-link {
+    text-align: center; /* Center the announcement */
+    margin-bottom: 20px; /* Margin below announcement */
+}
+
 .announcement-link a {
-    font-size: 1.2rem;
-    color: #39ff14;
-    text-decoration: none;
+    color: #00ffcc; /* Announcement link color */
+    text-decoration: none; /* No underline */
 }
 
 .announcement-link a:hover {
-    text-decoration: underline;
+    color: #00ffa3; /* Hover effect color */
+}
+
+/* Series Styles */
+.series-container {
+    display: grid; /* Grid layout for series */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive columns */
+    gap: 20px; /* Space between series */
+    margin-top: 20px; /* Margin above series */
+}
+
+.series-item {
+    background-color: #333; /* Series item background */
+    border-radius: 5px; /* Rounded corners */
+    overflow: hidden; /* Hide overflow */
+    position: relative; /* Position for hover effects */
+}
+
+.series-item img {
+    width: 100%; /* Full width */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Block display */
+}
+
+.series-title {
+    padding: 10px; /* Padding inside title */
+    text-align: center; /* Center title */
+    font-weight: bold; /* Bold text */
+}
+
+.chapter-link {
+    display: block; /* Block display */
+    padding: 10px; /* Padding inside chapter link */
+    text-align: center; /* Center link */
+    color: #00ffcc; /* Link color */
+    text-decoration: none; /* No underline */
+}
+
+.chapter-link:hover {
+    color: #00ffa3; /* Hover effect color */
 }
