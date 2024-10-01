@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body class="dark-theme">
+    <h1>Admin Panel</h1>
+    <h2>Add Series</h2>
+    <form id="seriesForm">
+        <input type="text" id="seriesName" placeholder="Series Name" required />
+        <input type="text" id="authorName" placeholder="Author Name" required />
+        <input type="text" id="artistName" placeholder="Artist Name" required />
+        <textarea id="seriesDescription" placeholder="Series Description" required></textarea>
+        <input type="text" id="coverImage" placeholder="Cover Image URL" required />
+        <button type="submit">Add Series</button>
+    </form>
+
+    <h2>Add Chapter</h2>
+    <form id="chapterForm">
+        <select id="seriesSelect"></select>
+        <input type="text" id="chapterNumber" placeholder="Chapter Number" required />
+        <input type="text" id="chapterLink" placeholder="Chapter Link" required />
+        <input type="number" id="vipDuration" placeholder="VIP Duration (days, optional)" min="3" max="7" />
+        <button type="submit">Add Chapter</button>
+    </form>
+
+    <h2>Manage VIP Users</h2>
+    <form id="vipUserForm">
+        <input type="text" id="vipUsername" placeholder="Username" required />
+        <button type="submit">Add VIP User</button>
+    </form>
+
+    <h3>Current VIP Users</h3>
+    <ul id="vipUsersList"></ul>
+
+    <h2>VIP Chapter Management</h2>
+    <form id="vipChapterForm">
+        <select id="vipSeriesSelect"></select>
+        <input type="text" id="vipChapterNumber" placeholder="Chapter Number" required />
+        <input type="number" id="vipDays" placeholder="VIP Duration (in days)" min="3" max="7" required />
+        <button type="submit">Set VIP Chapter</button>
+    </form>
+
+    <h3>VIP Restricted Chapters</h3>
+    <ul id="vipChaptersList"></ul>
+
+    <script src="/assets/js/admin.js" defer></script>
+</body>
+</html>
