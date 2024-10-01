@@ -1,7 +1,3 @@
-// Array to hold series data (normally this would come from a backend/database)
-let seriesData = [];
-
-// Handle the form submission to add a new series
 document.getElementById('addSeriesForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
@@ -11,37 +7,31 @@ document.getElementById('addSeriesForm').addEventListener('submit', function(eve
     const image = document.getElementById('image').value;
     const seriesPageLink = document.getElementById('seriesPageLink').value;
 
-    // Add new series to the seriesData array
+    // Add new series to the series data
+    let seriesData = JSON.parse(localStorage.getItem('seriesData')) || [];
     seriesData.push({ title, chapter, image, seriesPageLink });
+    localStorage.setItem('seriesData', JSON.stringify(seriesData));
 
-    // Save the new series data (You'd typically send this data to your server/backend)
-    console.log('Series Added:', { title, chapter, image, seriesPageLink });
-
-    // Reset the form
-    document.getElementById('addSeriesForm').reset();
-
-    // Call the function to display the new series on the homepage
+    // Display the new series immediately on the homepage
     displaySeries();
 });
 
-// Simulate displaying the newly added series (This should be on your homepage JS)
 function displaySeries() {
-    const seriesGrid = document.getElementById('seriesGrid'); // Assuming seriesGrid is on your homepage
-    seriesGrid.innerHTML = '';  // Clear the existing series
+    let seriesData = JSON.parse(localStorage.getItem('seriesData')) || [];
+    const seriesContainer = document.getElementById('seriesContainer');
+    seriesContainer.innerHTML = ''; // Clear previous content
 
-    // Loop over the series data and create the HTML for each series
     seriesData.forEach(series => {
-        const seriesCard = document.createElement('div');
-        seriesCard.className = 'series-card';
-
-        seriesCard.innerHTML = `
-            <img src="${series.image}" alt="${series.title}">
-            <div class="series-info">
-                <h3>${series.title}</h3>
-                <a href="${series.seriesPageLink}">${series.chapter}</a>
-            </div>
+        const seriesElement = document.createElement('div');
+        seriesElement.className = 'series-card';
+        seriesElement.innerHTML = `
+            <img src="${series.image}" alt="${series.title} Cover">
+            <h3>${series.title}</h3>
+            <p><a href="${series.seriesPageLink}">${series.chapter}</a></p>
         `;
-
-        seriesGrid.appendChild(seriesCard);
+        seriesContainer.appendChild(seriesElement);
     });
 }
+
+// Display series on page load
+document.addEventListener('DOMContentLoaded', displaySeries);
