@@ -1,122 +1,47 @@
-// Handle series form submission
-document.getElementById("seriesForm").addEventListener("submit", (e) => {
-    e.preventDefault();
-    const seriesName = document.getElementById("seriesName").value;
-    const authorName = document.getElementById("authorName").value;
-    const artistName = document.getElementById("artistName").value;
-    const seriesDescription = document.getElementById("seriesDescription").value;
-    const coverImage = document.getElementById("coverImage").value;
+// Array to hold series data (normally this would come from a backend/database)
+let seriesData = [];
 
-    const newSeries = {
-        id: seriesList.length + 1,
-        name: seriesName,
-        author: authorName,
-        artist: artistName,
-        description: seriesDescription,
-        coverImage: coverImage,
-        chapters: [],
-        vipChapter: null
-    };
+// Handle the form submission to add a new series
+document.getElementById('addSeriesForm').addEventListener('submit', function(event) {
+    event.preventDefault();
 
-    seriesList.push(newSeries);
-    displaySeriesInAdmin();
+    // Get form data
+    const title = document.getElementById('title').value;
+    const chapter = document.getElementById('chapter').value;
+    const image = document.getElementById('image').value;
+    const seriesPageLink = document.getElementById('seriesPageLink').value;
+
+    // Add new series to the seriesData array
+    seriesData.push({ title, chapter, image, seriesPageLink });
+
+    // Save the new series data (You'd typically send this data to your server/backend)
+    console.log('Series Added:', { title, chapter, image, seriesPageLink });
+
+    // Reset the form
+    document.getElementById('addSeriesForm').reset();
+
+    // Call the function to display the new series on the homepage
+    displaySeries();
 });
 
-// Handle chapter form submission
-document.getElementById("chapterForm").addEventListener("submit", (e) => {
-    e.preventDefault();
-    const chapterNumber = document.getElementById("chapterNumber").value;
-    const chapterLink = document.getElementById("chapterLink").value;
-    const vipDuration = document.getElementById("vipDuration").value;
+// Simulate displaying the newly added series (This should be on your homepage JS)
+function displaySeries() {
+    const seriesGrid = document.getElementById('seriesGrid'); // Assuming seriesGrid is on your homepage
+    seriesGrid.innerHTML = '';  // Clear the existing series
 
-    const selectedSeries = document.getElementById("seriesSelect").value;
-    const series = seriesList[selectedSeries - 1];
+    // Loop over the series data and create the HTML for each series
+    seriesData.forEach(series => {
+        const seriesCard = document.createElement('div');
+        seriesCard.className = 'series-card';
 
-    series.chapters.push({ number: chapterNumber, link: chapterLink });
+        seriesCard.innerHTML = `
+            <img src="${series.image}" alt="${series.title}">
+            <div class="series-info">
+                <h3>${series.title}</h3>
+                <a href="${series.seriesPageLink}">${series.chapter}</a>
+            </div>
+        `;
 
-    if (vipDuration) {
-        series.vipChapter = chapterNumber;
-        setTimeout(() => {
-            series.vipChapter = null; // Reset VIP chapter after duration
-        }, vipDuration * 24 * 60 * 60 * 1000);
-    }
-
-    displayChaptersInAdmin(selectedSeries);
-});
-
-// Function to display series in admin panel
-function displaySeriesInAdmin() {
-    const seriesSelect = document.getElementById("seriesSelect");
-    seriesSelect.innerHTML = '';
-    seriesList.forEach((series, index) => {
-        const option = document.createElement("option");
-        option.value = index + 1;
-        option.textContent = series.name;
-        seriesSelect.appendChild(option);
+        seriesGrid.appendChild(seriesCard);
     });
 }
-
-// Function to display chapters in admin panel
-function displayChaptersInAdmin(selectedSeries) {
-    const chapterList = document.getElementById("chapterList");
-    chapterList.innerHTML = '';
-    const series = seriesList[selectedSeries - 1];
-    series.chapters.forEach(chapter => {
-        const li = document.createElement("li");
-        li.textContent = `Chapter ${chapter.number}: ${chapter.link}`;
-        chapterList.appendChild(li);
-    });
-}
-
-// Handle VIP user form submission
-document.getElementById("vipUserForm").addEventListener("submit", (e) => {
-    e.preventDefault();
-    const vipUsername = document.getElementById("vipUsername").value;
-
-    vipUsers.push(vipUsername);
-    displayVIPUsers();
-});
-
-// Function to display VIP users
-function displayVIPUsers() {
-    const vipUsersList = document.getElementById("vipUsersList");
-    vipUsersList.innerHTML = '';
-    vipUsers.forEach(user => {
-        const li = document.createElement("li");
-        li.textContent = user;
-        vipUsersList.appendChild(li);
-    });
-}
-
-// Handle VIP chapter form submission
-document.getElementById("vipChapterForm").addEventListener("submit", (e) => {
-    e.preventDefault();
-    const selectedSeries = document.getElementById("vipSeriesSelect").value;
-    const chapterNumber = document.getElementById("vipChapterNumber").value;
-    const vipDays = document.getElementById("vipDays").value;
-
-    const series = seriesList[selectedSeries - 1];
-    series.vipChapter = chapterNumber;
-
-    // Logic for setting the VIP chapter duration
-    setTimeout(() => {
-        series.vipChapter = null; // Reset VIP chapter after duration
-    }, vipDays * 24 * 60 * 60 * 1000);
-    displayVIPChapters();
-});
-
-// Function to display VIP chapters
-function displayVIPChapters() {
-    const vipChaptersList = document.getElementById("vipChaptersList");
-    vipChaptersList.innerHTML = '';
-    seriesList.forEach(series => {
-        if (series.vipChapter) {
-            const li = document.createElement("li");
-            li.textContent = `${series.name} - Chapter ${series.vipChapter}`;
-            vipChaptersList.appendChild(li);
-        }
-    });
-}
-
-// Initial load
-displaySeriesInAdmin();
