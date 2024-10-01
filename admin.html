@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Admin - Add Series</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="flex-title">Flex Scans</a>
+        <div class="border-line"></div>
+    </header>
+
+    <main>
+        <h2>Add New Series</h2>
+        <form id="addSeriesForm">
+            <label for="title">Series Title:</label>
+            <input type="text" id="title" required>
+
+            <label for="chapter">Chapter:</label>
+            <input type="text" id="chapter" required>
+
+            <label for="image">Cover Image URL:</label>
+            <input type="url" id="image" required>
+
+            <label for="seriesPageLink">Series Page Link:</label>
+            <input type="url" id="seriesPageLink" required>
+
+            <button type="submit">Add Series</button>
+        </form>
+    </main>
+
+    <script src="assets/js/admin.js"></script>
+</body>
+</html>
