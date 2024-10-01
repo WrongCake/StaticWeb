@@ -1,52 +1,131 @@
-body {
-    background-color: black;
-    color: white;
-    font-family: Arial, sans-serif;
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+/* Body and background */
+body {
+    background: #2b2d42; /* Dark anime-like background */
+    color: #edf2f4; /* Soft white for text */
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Navbar and header */
 header {
+    padding: 20px;
+    text-align: center;
+}
+
+.navbar {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.flex-title {
+    font-size: 2.5rem;
+    color: #ff00ff; /* Neon pink for Flex Scans */
+    text-decoration: none;
+}
+
+.flex-title:hover {
+    text-shadow: 0 0 10px #ff00ff; /* Neon hover effect */
+}
+
+.search-bar input {
     padding: 10px;
-    border-bottom: 2px solid yellow;
+    border-radius: 5px;
+    border: 2px solid #8d99ae;
+    background-color: #edf2f4;
 }
 
-h1 {
-    color: yellow;
+/* Neon border */
+.border-line {
+    height: 5px;
+    background: linear-gradient(to right, #ff00ff, #00ffff); /* Neon gradient */
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
 
-input[type="text"], input[type="password"], textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 5px 0;
+/* Main content */
+main {
+    padding: 20px;
 }
 
-button {
-    padding: 10px;
-    background-color: green;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: darkgreen;
-}
-
-.series-container {
+/* Series grid layout */
+.series-grid {
     display: flex;
     flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
 }
 
-.series-item {
-    border: 1px solid yellow;
-    margin: 10px;
+.series-card {
+    background-color: #3a3f58;
     padding: 10px;
-    flex: 1 0 200px; /* Flexbox for responsive design */
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
 }
 
+.series-card:hover {
+    transform: scale(1.05);
+}
+
+.series-card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.series-info h3 {
+    color: #ff6b6b; /* Anime-inspired soft pink */
+    font-size: 1.5rem;
+}
+
+.series-info a {
+    color: #00ffff; /* Neon cyan for chapter links */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.series-info a:hover {
+    text-shadow: 0 0 10px #00ffff;
+}
+
+/* Announcement section */
 .announcement {
-    background-color: darkgray;
-    padding: 10px;
-    margin: 10px 0;
+    background-color: #4a4e69;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 30px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.announcement h2 {
+    color: #f9c74f; /* Neon yellow for announcement title */
+}
+
+/* Footer for Disqus */
+footer {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #1c1c28;
+    text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .series-grid {
+        flex-direction: column;
+    }
+
+    .navbar {
+        flex-direction: column;
+    }
 }
