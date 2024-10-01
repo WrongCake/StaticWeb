@@ -1,101 +1,90 @@
 /* Global Styles */
 body {
-    background-color: #1a1a1a;  /* Dark background for the anime aesthetic */
-    color: #f5f5f5;  /* Light text for readability */
+    background-color: #1a1a1a; /* Dark background */
+    color: #f5f5f5; /* Light text */
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
 }
 
+/* Header styles */
 header {
     background-color: #1a1a1a;
-    color: #f5f5f5;
+    color: #39ff14; /* Neon green for anime aesthetic */
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    border-bottom: 4px solid #39ff14;  /* Neon green border */
+    border-bottom: 4px solid #39ff14; /* Neon border */
 }
 
 .flex-title {
     font-size: 2rem;
-    color: #39ff14;  /* Neon green for the anime aesthetic */
+    color: #39ff14;
     text-decoration: none;
 }
 
 .border-line {
-    border-bottom: 2px solid #39ff14;  /* Neon green border separating title and content */
+    border-bottom: 2px solid #39ff14; /* Neon border separating header and content */
     width: 100%;
 }
 
-/* Series Grid */
-main {
-    padding: 20px;
+/* Search bar styles */
+.search-bar {
+    position: absolute;
+    top: 25px;
+    right: 20px;
 }
 
-.series-grid {
+.search-bar input {
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+}
+
+/* Main Content Styles */
+main {
+    padding: 20px;
+    background-color: #1a1a1a;
+}
+
+/* Series Container */
+#seriesContainer {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
 }
 
 .series-card {
-    background-color: #282828;
-    padding: 10px;
+    background-color: #333;
+    padding: 20px;
     border-radius: 10px;
     text-align: center;
 }
 
 .series-card img {
-    width: 100%;
-    border-radius: 8px;
+    max-width: 100%;
+    border-radius: 10px;
 }
 
 .series-card h3 {
-    color: #39ff14;  /* Neon green for titles */
+    color: #39ff14;
+    margin: 10px 0;
 }
 
-.series-card a {
+.series-card p {
+    color: #fff;
+}
+
+/* Announcement link */
+.announcement-link a {
+    font-size: 1.2rem;
     color: #39ff14;
     text-decoration: none;
 }
 
-.series-card a:hover {
+.announcement-link a:hover {
     text-decoration: underline;
-}
-
-/* Form Styling (Admin Page) */
-form {
-    background-color: #282828;
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 20px;
-}
-
-form label, form input {
-    display: block;
-    margin: 10px 0;
-    color: #f5f5f5;
-}
-
-form input[type="text"], form input[type="url"] {
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-    background-color: #1a1a1a;
-    color: #f5f5f5;
-}
-
-form button {
-    background-color: #39ff14;
-    color: #1a1a1a;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-form button:hover {
-    background-color: #2ecc71;  /* Slightly different neon color on hover */
 }
